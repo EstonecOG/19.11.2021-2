@@ -1,6 +1,9 @@
-from Funktsioonid import *
-users=["Kliment"]
-passwords=["12345"]
+from Funktsioonid import*
+from Too_failidega import*
+users=loe_failist_listisse("users.txt")
+passwords=loe_failist_listisse("passwords.txt")
+print(users)
+print(passwords)
 
 while True:
     print("Reg-1,Avt-2,Valja-3")
@@ -33,9 +36,13 @@ while True:
         pas=input("Password:")
         if pas not in passwords:
             print("Vale parool")
+        if passwords.index(pas)==users.index(user):
+            print("Tere tulemast")
         #
     elif v==3:
         print("Valja")
+        faili_sisu_umberkirjutamine("users.txt",users)
+        faili_sisu_umberkirjutamine("passwords.txt",passwords)
         break
         #
     else:

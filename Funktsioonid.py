@@ -1,5 +1,15 @@
 import random
 #Создаем функции
+def loe_failist_listisse(file:str)->list:
+    """Loeme tekst failist ja salvesta jarjendisse
+    """
+    f=open(file,'r')
+    list_=[]
+    for stroka in f:
+        list_.append(stroka.strip())
+    f.close()
+    return list_
+
 def pscontrol(psword:str)->bool:
     """Функция вернет True если пароль будет соответстсвовать всем проверкам.
     """
@@ -18,6 +28,12 @@ def pscontrol(psword:str)->bool:
     else:
         ans=False
     return ans
+
+def faili_sisu_umberkirjutamine(file:str,list_:list):
+    with open(file,'w') as f:
+        for slovo in list_:
+            f.write(text+'\n')
+
 def passautomat()->str:
     """Пароль создается машиной
     """
